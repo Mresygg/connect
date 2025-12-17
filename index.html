@@ -3,21 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MC Connect</title>
-<link rel="stylesheet" href="style.css">
+<title>MC Connect 验证</title>
 </head>
 <body>
-<div class="container">
-    <div class="card">
-        <h1>欢迎连接 MC 服务器</h1>
-        <p>请通过验证继续访问</p>
+<h1>请完成验证</h1>
+<p>通过人机验证后即可继续访问</p>
 
-        <!-- Turnstile 人机验证 -->
-        <div class="cf-turnstile" data-sitekey="你的-sitekey-here"></div>
-    </div>
-</div>
+<!-- Turnstile 小组件 -->
+<div class="cf-turnstile" data-sitekey="0x4AAAAAACHNUGqbEe6wNgjM"></div>
 
-<!-- Cloudflare Turnstile API -->
+<!-- Cloudflare Turnstile 脚本 -->
 <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </body>
 </html>
