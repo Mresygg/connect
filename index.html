@@ -10,12 +10,15 @@
 <div class="container">
   <div class="card">
     <h1>欢迎连接 MC 服务器</h1>
-    <p>请完成人机验证后查看服务器 IP</p>
+    <p>请完成验证后查看服务器 IP</p>
 
-    <!-- Turnstile 小组件 -->
-    <div class="cf-turnstile" data-sitekey="0x4AAAAAACHNUGqbEe6wNgjM" data-callback="showServerIP"></div>
+    <!-- Cloudflare Turnstile -->
+    <div class="cf-turnstile" 
+         data-sitekey="0x4AAAAAACHNUGqbEe6wNgjM" 
+         data-callback="onTurnstileSuccess">
+    </div>
 
-    <!-- 验证成功后显示 -->
+    <!-- 验证成功后显示服务器信息 -->
     <div id="server-info" style="display:none; margin-top:20px;">
       <p>MC 服务器 IP: <strong>mcsever.site</strong></p>
       <a href="mcsever://connect.mcsever.site" class="connect-btn">点击直接连接</a>
@@ -23,12 +26,12 @@
   </div>
 </div>
 
-<!-- Cloudflare Turnstile JS -->
+<!-- Turnstile 脚本 -->
 <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 
 <script>
-function showServerIP(token) {
-    // 验证通过后显示服务器信息
+function onTurnstileSuccess(token) {
+    // 显示服务器信息
     document.getElementById('server-info').style.display = 'block';
 }
 </script>
