@@ -3,16 +3,34 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MC Connect 验证</title>
+<title>MC Connect</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-<h1>请完成验证</h1>
-<p>通过人机验证后即可继续访问</p>
+<div class="container">
+  <div class="card">
+    <h1>欢迎连接 MC 服务器</h1>
+    <p>请完成人机验证后查看服务器 IP</p>
 
-<!-- Turnstile 小组件 -->
-<div class="cf-turnstile" data-sitekey="0x4AAAAAACHNUGqbEe6wNgjM"></div>
+    <!-- Turnstile 小组件 -->
+    <div class="cf-turnstile" data-sitekey="0x4AAAAAACHNUGqbEe6wNgjM" data-callback="showServerIP"></div>
 
-<!-- Cloudflare Turnstile 脚本 -->
+    <!-- 验证成功后显示 -->
+    <div id="server-info" style="display:none; margin-top:20px;">
+      <p>MC 服务器 IP: <strong>mcsever.site</strong></p>
+      <a href="mcsever://connect.mcsever.site" class="connect-btn">点击直接连接</a>
+    </div>
+  </div>
+</div>
+
+<!-- Cloudflare Turnstile JS -->
 <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+
+<script>
+function showServerIP(token) {
+    // 验证通过后显示服务器信息
+    document.getElementById('server-info').style.display = 'block';
+}
+</script>
 </body>
 </html>
